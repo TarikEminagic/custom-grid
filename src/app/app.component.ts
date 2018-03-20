@@ -16,12 +16,13 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
     this.options = {
-      gridType: "scrollVertical",
-      maxCols: 12,
-      minCols: 12,
+      gridType: "verticalFixed",
+      maxCols: 6,
+      minCols: 6,
       minRows: 5,      
       maxRows: 100,
       margin: 10,
+      fixedRowHeight: 200,
       pushDirections: {
         north: true,
         east: true,
@@ -56,17 +57,5 @@ export class AppComponent implements OnInit {
 
   removeItem(item) {
     this.dashboard.splice(this.dashboard.findIndex(i => i == item), 1);
-  }
-
-  changeColumns() {
-    this.options.maxCols = 6;
-    this.options.minCols = 6;
-    this.options.api.optionsChanged();
-    setTimeout(() => {
-      this.dashboard.forEach((item: SticosGridItem) => {
-        item = Object.assign(new SticosGridItem(), this.options.api.getFirstPossiblePosition(item))
-        console.log(item);
-      });
-    }, 2000);
   }
 }
