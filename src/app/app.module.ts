@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { GridsterModule } from 'angular-gridster2';
+import { LoadingModule } from 'ngx-loading';
 import { AppComponent } from './app.component';
 
 
@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    GridsterModule,
+    LoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
